@@ -2,7 +2,7 @@
     "name": "@pressdocs/vuepress-plugin-pressdocs",
     "description": "A Vuepress Plugin for Code Documentation",
     "main": "src/index.js",
-    "version": "0.0.2",
+    "version": "0.0.3-alpha.0",
     "dependencies": {
         "is-installed": "^2.0.1"
     },
