@@ -1,0 +1,13 @@
+{
+    "name": "@pressdocs/lang-js",
+    "description": "Pressdocs documentation provider for JavaScript",
+    "main": "src/index.js",
+    "version": "0.0.1",
+    "dependencies": {
+        "@pressdocs/lang": "*",
+        "jsdoc-to-markdown": "^6.0.1"
+    },
+    "license": "MIT",
+    "repository": "git@github.com:eFrane/pressdocs.git",
+    "author": "eFrane <efrane@meanderingsoul.com>"
+}

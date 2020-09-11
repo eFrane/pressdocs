@@ -1,0 +1,12 @@
+{
+  "name": "pressdocs",
+  "version": "0.0.1",
+  "description": "A set of packages for code documentation with VuePress",
+  "repository": "git@github.com:eFrane/pressdocs.git",
+  "author": "eFrane <efrane@meanderingsoul.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  }
+}
