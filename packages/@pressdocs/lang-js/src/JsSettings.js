@@ -1,6 +1,6 @@
 'use strict'
 
-const Settings = require('@pressdocs/lang').Settings
+const { Settings } = require('@pressdocs/lang')
 
 class JsSettings extends Settings {
     /**

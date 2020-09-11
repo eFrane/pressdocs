@@ -9,5 +9,6 @@
     },
     "license": "MIT",
     "repository": "git@github.com:eFrane/pressdocs.git",
-    "author": "eFrane <efrane@meanderingsoul.com>"
+    "author": "eFrane <efrane@meanderingsoul.com>",
+    "gitHead": "c5e74b8af0dc1643fd86b248850ed2c2dd50b161"
 }
