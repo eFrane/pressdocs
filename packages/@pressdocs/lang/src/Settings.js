@@ -5,20 +5,34 @@
  */
 class Settings {
     /**
-     * Extract language settings from the namespaced plugins options object
+     * Extract language settings from the plugins' options object
      *
      * @param {Object} options
-     * @param {String} namespace
+     * @param {String} language
      * @param {Object} defaults
      */
-    extractSettings (options, namespace, defaults) {
-        if (!options.includes('languages') || !options['languages'].includes(namespace)) {
+    extractLanguageSettings (options, language, defaults) {
+        const hasLanguage = (options, language) => {
+            if (!Object.keys(options).includes('languages')) {
+                return false
+            }
+
+            const languages = options['languages']
+
+            if (!Object.prototype.hasOwnProperty.call(languages, language)) {
+                return false
+            }
+
+            return true
+        }
+
+        if (!hasLanguage(options, language)) {
             // there's no settings for the current namespace,
             // just return the defaults
             return Object.assign({}, defaults)
         }
 
-        return Object.assign({}, defaults, options[namespace])
+        return Object.assign({}, defaults, options['languages'][language])
     }
 }
 
