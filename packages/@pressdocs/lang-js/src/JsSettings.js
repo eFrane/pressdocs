@@ -1,6 +1,6 @@
 'use strict'
 
-const { Settings } = require('@pressdocs/lang')
+const { Settings } = require('@pressdocs/lang/src/Settings')
 
 class JsSettings extends Settings {
     /**
@@ -9,6 +9,8 @@ class JsSettings extends Settings {
      * @param {Object} options
      */
     constructor(options, context) {
+        super()
+
         const defaults = {
             sourceDir: context.sourceDir,
             matchPattern: '/**/*.js',
@@ -21,7 +23,7 @@ class JsSettings extends Settings {
             path: null
         }
 
-        let settings = this.extractSettings(options, 'js', defaults)
+        let settings = this.extractLanguageSettings(options, 'js', defaults)
 
         // validate build mode
         const availableBuildModes = ['category', 'fullpage']
