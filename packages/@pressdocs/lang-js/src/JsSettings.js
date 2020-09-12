@@ -20,7 +20,8 @@ class JsSettings extends Settings {
              * Allowed values: fullpage, category
              */
             buildMode: 'fullpage',
-            path: null
+            path: null,
+            title: 'Reference (JS)'
         }
 
         let settings = this.extractLanguageSettings(options, 'js', defaults)

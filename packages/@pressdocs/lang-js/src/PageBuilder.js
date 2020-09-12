@@ -51,8 +51,11 @@ class PageBuilder {
 
         return [
             {
-              path: this.settings.path,
-              content: dmd(data, { template })
+                path: this.settings.path,
+                content: dmd(data, { template }),
+                frontmatter: {
+                    title: this.settings.title
+                }
             }
         ]
     }
