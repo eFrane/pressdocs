@@ -22,7 +22,7 @@ const plugin = (options, context) => {
         additionalPages () {
             let pages = []
 
-            for (provider of languageProviders) {
+            for (const provider of languageProviders) {
                 if (provider.hasAdditionalPages()) {
                     pages = pages.concat(provider.getAdditionalPages())
                 }
