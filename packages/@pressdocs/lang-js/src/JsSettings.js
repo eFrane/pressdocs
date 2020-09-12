@@ -1,6 +1,6 @@
 'use strict'
 
-const { Settings } = require('@pressdocs/lang/src/Settings')
+const { Settings } = require('@pressdocs/lang/lib/Settings')
 
 class JsSettings extends Settings {
     /**
