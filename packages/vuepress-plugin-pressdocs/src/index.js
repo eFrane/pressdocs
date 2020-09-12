@@ -22,11 +22,11 @@ const plugin = (options, context) => {
         additionalPages () {
             let pages = []
 
-            for (const provider of languageProviders) {
-                if (provider.hasAdditionalPages()) {
+            languageProviders
+                .filter(provider => provider.hasAdditionalPages())
+                .map(provider => {
                     pages = pages.concat(provider.getAdditionalPages())
-                }
-            }
+                })
 
             return pages
         }
