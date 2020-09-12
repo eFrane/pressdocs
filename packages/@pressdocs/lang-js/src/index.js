@@ -15,7 +15,8 @@ class JsProvider extends LanguageProvider {
 
     getData () {
         return jsdoc2md.getTemplateDataSync({
-            files: this.settings.sourceDir + this.settings.matchPattern
+            files: this.settings.sourceDir + this.settings.matchPattern,
+            ...this.settings.jsDocOptions
         })
     }
 
