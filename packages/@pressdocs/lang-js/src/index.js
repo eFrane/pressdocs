@@ -4,17 +4,30 @@ const jsdoc2md = require('jsdoc-to-markdown')
 
 const JsSettings = require('./JsSettings').JsSettings
 const PageBuilder = require('./PageBuilder').PageBuilder
+const LanguageProvider = require('@pressdocs/lang/lib/LanguageProvider').LanguageProvider
 
-function build (options, context) {
-    const settings = new JsSettings(options, context)
+class JsProvider extends LanguageProvider {
+    constructor(options, context) {
+        super(options, context)
 
-    let data = jsdoc2md.getTemplateDataSync({
-        files: settings.sourceDir + settings.matchPattern
-    })
+        this.settings = new JsSettings(options, context)
+    }
 
-    const pageBuilder = new PageBuilder(settings)
+    getData () {
+        return jsdoc2md.getTemplateDataSync({
+            files: this.settings.sourceDir + this.settings.matchPattern
+        })
+    }
 
-    return pageBuilder.build(data)
+    hasAdditionalPages () {
+        return true
+    }
+
+    getAdditionalPages () {
+        const pageBuilder = new PageBuilder(this.settings)
+
+        return pageBuilder.build(this.getData())
+    }
 }
 
-module.exports = build
+module.exports = JsProvider
