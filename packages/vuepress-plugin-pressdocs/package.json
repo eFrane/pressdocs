@@ -1,5 +1,5 @@
 {
-    "name": "@pressdocs/vuepress-plugin-pressdocs",
+    "name": "vuepress-plugin-pressdocs",
     "description": "A Vuepress Plugin for Code Documentation",
     "main": "src/index.js",
     "version": "0.0.3",
