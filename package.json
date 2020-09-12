@@ -5,9 +5,15 @@
   "author": "eFrane <efrane@meanderingsoul.com>",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "cypress:run": "cypress run",
+    "test": "start-server-and-test test:vuepress http-get://localhost:8080 cypress:run",
+    "test:vuepress": "vuepress dev tests/fixtures/vuepress"
+  },
   "devDependencies": {
     "cypress": "^5.1.0",
     "lerna": "^3.22.1",
+    "start-server-and-test": "^1.11.3",
     "vuepress": "^1.5.4"
   }
 }
