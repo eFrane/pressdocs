@@ -1,14 +1,12 @@
 'use strict'
 
 const isInstalled = require('is-installed')
-
-const availableLanguages = {
-    'js': '@pressdocs/lang-js'
-}
+const availableLanguages = require('./languages.json')
 
 const plugin = (options, context) => {
     let languageProviders = []
 
+    // initialize available language providers
     for (const providerPackage of Object.values(availableLanguages)) {
         if (isInstalled(providerPackage)) {
             const Provider = require(providerPackage)
