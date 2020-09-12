@@ -15,7 +15,9 @@ const plugin = (options, context) => {
             for (const lang of Object.values(availableLanguages)) {
                 if (isInstalled(lang)) {
                     const build = require(lang)
-                    pages.concat(build(options, context))
+                    const languagePages = build(options, context)
+
+                    pages = pages.concat(languagePages)
                 }
             }
 
