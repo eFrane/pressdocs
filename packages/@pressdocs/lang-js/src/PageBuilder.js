@@ -2,6 +2,7 @@
 
 const dmd = require('dmd')
 const fs = require('fs')
+const handlebars = require('handlebars')
 
 /**
  * Load a Handlebars template from the templates folder
@@ -11,6 +12,13 @@ const fs = require('fs')
 function templateLoader (name) {
     const templatePath = __dirname + '/../templates/'
     return fs.readFileSync(templatePath + name + '.hbs', 'utf-8').toString()
+}
+
+function templateParser (name, data) {
+    const templateString = templateLoader(name)
+    const template = handlebars.compile(templateString)
+
+    return template(data)
 }
 
 class PageBuilder {
@@ -34,8 +42,8 @@ class PageBuilder {
                 pages = this._buildFullPage(data)
                 break;
 
-            case 'category':
-                pages = this._buildCategories(data)
+            case 'kind':
+                pages = this._buildByKind(data)
                 break
 
             default:
@@ -60,8 +68,56 @@ class PageBuilder {
         ]
     }
 
-    _buildCategories (data) {
-        throw new Error('Not yet implemented')
+    _buildByKind (data) {
+        const classes = data.filter(el => el.kind === 'class')
+        const functions = data.filter(el => el.kind === 'function' && el.scope !== 'instance')
+
+        const indexData = { classes, functions, _settings: this.settings }
+
+        let pages = [
+            // Add the index page
+            {
+                path: this.settings.path,
+                content: templateParser('kind_index', indexData),
+                frontmatter: {
+                    title: this.settings.title
+                }
+            }
+        ]
+
+        for (const classData of classes) {
+            let renderData = [classData]
+
+            renderData = renderData.concat(
+                data.filter(el => el.memberof === classData.name)
+            )
+
+            const pageTemplate = `{{#class name="${classData.name}"}}{{>docs}}{{/class}}`
+
+            pages.push({
+                path: this.settings.path + 'class/' + classData.name,
+                content: dmd(renderData , pageTemplate),
+                frontmatter: {
+                    prev: this.settings.path
+                }
+            })
+        }
+
+        for (const functionData of functions) {
+            let renderData = [functionData]
+
+            const pageTemplate = `{{#function name="${functionData.name}"}}{{>docs}}{{/class}}`
+
+            pages.push({
+                path: this.settings.path + 'function/' + functionData.name,
+                content: dmd(renderData , pageTemplate),
+                frontmatter: {
+                    prev: this.settings.path
+                }
+            })
+        }
+
+        return pages
     }
 }
 

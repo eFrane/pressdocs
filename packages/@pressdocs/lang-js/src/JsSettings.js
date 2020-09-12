@@ -17,9 +17,9 @@ class JsSettings extends Settings {
             jsdocOptions: {},
 
             /**
-             * Allowed values: fullpage, category
+             * Allowed values: fullpage, kind
              */
-            buildMode: 'fullpage',
+            buildMode: 'kind',
             path: null,
             title: 'Reference (JS)'
         }
@@ -27,7 +27,7 @@ class JsSettings extends Settings {
         let settings = this.extractLanguageSettings(options, 'js', defaults)
 
         // validate build mode
-        const availableBuildModes = ['category', 'fullpage']
+        const availableBuildModes = ['fullpage', 'kind']
         if (!availableBuildModes.includes(settings.buildMode)) {
             const buildModesStr = availableBuildModes.join(', ')
             throw new Error(`Incorrect build mode, choose one of: ${buildModesStr}`)

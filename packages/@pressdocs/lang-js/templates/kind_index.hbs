@@ -1,0 +1,13 @@
+# \{{ $frontmatter.title }}
+
+## Classes
+
+{{#each classes}}
+- [{{ name }}]({{ ..._settings.path }}class/{{ name }})
+{{/each}}
+
+## Global Functions
+
+{{#each functions}}
+- [{{ name }}]({{ ..._settings.path }}function/{{ name }})
+{{/each}}
