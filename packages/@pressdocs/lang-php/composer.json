@@ -1,0 +1,19 @@
+{
+    "name": "efrane/pressdocs-lang-php",
+    "description": "Native parts of the PHP Language Provider for pressdocs",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "eFrane",
+            "email": "efrane@meanderingsoul.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "\\EFrane\\Pressdocs\\": "src/php/"
+        }
+    }
+}

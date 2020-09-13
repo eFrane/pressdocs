@@ -1,0 +1,13 @@
+{
+    "name": "@pressdocs/lang-php",
+    "author": "eFrane <efrane@meanderingsoul.com>",
+    "version": "0.0.0",
+    "license": "MIT",
+    "description": "PHP Language Provider for pressdocs",
+    "dependencies": {
+        "@pressdocs/lang": "0.1.1",
+        "which": "^2.0.2"
+    },
+    "main": "src/js/index.js",
+    "repository": "git@github.com:eFrane/pressdocs.git"
+}
