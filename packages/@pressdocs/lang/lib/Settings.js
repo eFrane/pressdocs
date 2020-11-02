@@ -1,5 +1,23 @@
 'use strict'
 
+function getLanguages (options) {
+    if (!Object.keys(options).includes('languages')) {
+        return undefined
+    }
+
+    return options['languages']
+}
+
+function hasLanguage (options, language) {
+    const languages = getLanguages(options)
+
+    if (typeof languages === 'undefined' || !Object.prototype.hasOwnProperty.call(languages, language)) {
+        return false
+    }
+
+    return true
+}
+
 /**
  * Base class for language provider settings
  */
@@ -12,20 +30,6 @@ class Settings {
      * @param {Object} defaults
      */
     extractLanguageSettings (options, language, defaults) {
-        const hasLanguage = (options, language) => {
-            if (!Object.keys(options).includes('languages')) {
-                return false
-            }
-
-            const languages = options['languages']
-
-            if (!Object.prototype.hasOwnProperty.call(languages, language)) {
-                return false
-            }
-
-            return true
-        }
-
         if (!hasLanguage(options, language)) {
             // there's no settings for the current namespace,
             // just return the defaults
@@ -36,4 +40,4 @@ class Settings {
     }
 }
 
-module.exports = { Settings }
+module.exports = { getLanguages, hasLanguage, Settings }

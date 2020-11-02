@@ -17,6 +17,16 @@ class LanguageProvider {
     getAdditionalPages () {
         return []
     }
+
+    /**
+     * This method will be called to check whether the system
+     * supports running this language provider. For anything
+     * other than JavaScript, additional software may need
+     * to be present on the system.
+     */
+    canRun () {
+        return false
+    }
 }
 
 module.exports = { LanguageProvider }
