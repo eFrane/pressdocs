@@ -1,3 +1,4 @@
 {
-    "js": "@pressdocs/lang-js"
+    "js": "@pressdocs/lang-js",
+    "php": "@pressdocs/lang-php"
 }
