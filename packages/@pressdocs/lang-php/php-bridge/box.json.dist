@@ -1,0 +1,29 @@
+{
+    "main": false,
+    "base-path": "\/Users\/sgraupner\/Development\/Libs\/vuepress\/pressdocs\/packages\/@pressdocs\/lang-php\/php-bridge",
+    "output": "\/Users\/sgraupner\/Development\/Libs\/vuepress\/pressdocs\/packages\/@pressdocs\/lang-php\/php-bridge\/php-bridge.phar",
+    "compression": "GZ",
+    "stub": "\/Users\/sgraupner\/Development\/Libs\/vuepress\/pressdocs\/packages\/@pressdocs\/lang-php\/php-bridge\/build\/stub.php",
+    "finder": [
+        {
+            "exclude": [
+                ".box",
+                ".git",
+                ".github",
+                ".idea",
+                "vendor-bin",
+                "var"
+            ],
+            "ignoreDotFiles": false,
+            "in": ".",
+            "notName": [
+                "*.phar",
+                ".gitignore",
+                "box.json",
+                "scoper.inc.php"
+            ],
+            "followLinks": true
+        }
+    ],
+    "chmod": "0750"
+}

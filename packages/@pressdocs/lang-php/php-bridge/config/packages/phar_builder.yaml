@@ -1,0 +1,22 @@
+# Default configuration for "PharBuilderBundle"
+phar_builder:
+
+  # The application class
+  application_class:    EFrane\PharBuilder\Application\PharApplication
+
+  # The kernel used by the phar application
+  phar_kernel:          EFrane\PharBuilder\Application\PharKernel
+  build:
+    dump_container_debug_info: true
+    include_debug_commands: false
+
+    # The resulting phar will have this filename (does not have to end with .phar)
+    output_path: '%kernel.project_dir%'
+    output_filename:      php-bridge.phar
+
+    temp_path: '%kernel.project_dir%/build'
+
+    # The application environment for the phar build
+    environment:          prod
+    debug:                false
+
