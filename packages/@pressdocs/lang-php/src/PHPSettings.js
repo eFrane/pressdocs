@@ -4,8 +4,6 @@ class PHPSettings extends Settings {
     constructor() {
         super()
     }
-
-
 }
 
 module.exports = { PHPSettings }
