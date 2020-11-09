@@ -13,7 +13,7 @@ namespace App\Documentation;
  * Format a collected note suitable for documentation display.
  *
  */
-abstract class NodeFormatter
+class NodeFormatter
 {
     const UNKNOWN = '<unknown>';
 
