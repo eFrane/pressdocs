@@ -6,6 +6,7 @@
         "php": ">=7.2.5",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "ext-json": "*",
         "bamarni/composer-bin-plugin": "^1.4",
         "efrane/phar-builder-bundle": "^v0.1.0",
         "nikic/php-parser": "^4.10",

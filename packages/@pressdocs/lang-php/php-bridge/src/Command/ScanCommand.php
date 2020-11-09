@@ -7,7 +7,9 @@
 namespace App\Command;
 
 
+use App\Documentation\Parser;
 use EFrane\PharBuilder\Command\PharCommand;
+use PhpParser\ParserFactory;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -39,15 +41,10 @@ class ScanCommand extends PharCommand
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $finder = Finder::create()
-            ->ignoreVCSIgnored(!$input->getOption('include-vcs-ignored'))
-            ->in($input->getArgument('scandir'))
-            ->name('*.php')
-            ->files();
+        $parser = new Parser($input->getArgument('scandir'), $input->getOption('include-vcs-ignored'));
+        $parser->parse();
 
-        foreach ($finder as $splFileInfo) {
-            $output->writeln($splFileInfo->getRealPath());
-        }
+        $output->writeln(json_encode($parser->getResults(), JSON_PRETTY_PRINT));
 
         return Command::SUCCESS;
     }
