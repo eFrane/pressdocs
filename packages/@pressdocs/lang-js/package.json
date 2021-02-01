@@ -2,9 +2,9 @@
     "name": "@pressdocs/lang-js",
     "description": "Pressdocs documentation provider for JavaScript",
     "main": "src/index.js",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "dependencies": {
-        "@pressdocs/lang": "^0.1.1",
+        "@pressdocs/lang": "^0.1.2",
         "jsdoc-to-markdown": "^6.0.1"
     },
     "license": "MIT",
