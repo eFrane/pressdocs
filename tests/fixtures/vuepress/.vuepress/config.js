@@ -6,6 +6,10 @@ module.exports = {
                 'js': {
                     path: '/js/',
                     sourceDir: __dirname + '/../../../../packages/@pressdocs/lang-js/src',
+                },
+                'php': {
+                    path: '/php/',
+                    sourceDir: __dirname + '/../../php'
                 }
             }
         }]
