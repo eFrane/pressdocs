@@ -2,12 +2,32 @@
 
 ## Classes
 
-{{#each classes}}
-- [{{ name }}]({{ ..._settings.path }}class/{{ name }})
-{{/each}}
+<table>
+  <tbody>
+    <tr>
+      <td style="columns: 2">
+        <ul>
+          {{#each classes}}
+            <li><a href="{{ ..._settings.path }}class/{{ name }}/">{{ name }}</a></li>
+          {{/each}}
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ## Global Functions
 
-{{#each functions}}
-- [{{ name }}]({{ ..._settings.path }}function/{{ name }})
-{{/each}}
+<table>
+  <tbody>
+    <tr>
+      <td style="columns: 2">
+        <ul>
+          {{#each functions}}
+            <li><a href="{{ ..._settings.path }}function/{{ name }}/">{{ name }}</a></li>
+          {{/each}}
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
