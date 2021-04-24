@@ -2,7 +2,7 @@
     "name": "@pressdocs/lang-js",
     "description": "Pressdocs documentation provider for JavaScript",
     "main": "src/index.js",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "dependencies": {
         "@pressdocs/lang": "^0.1.2",
         "jsdoc-to-markdown": "^6.0.1"
