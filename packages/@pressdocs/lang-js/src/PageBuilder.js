@@ -74,16 +74,16 @@ class PageBuilder {
 
         const indexData = { classes, functions, _settings: this.settings }
 
-        let pages = [
-            // Add the index page
-            {
-                path: this.settings.path,
-                content: templateParser('kind_index', indexData),
-                frontmatter: {
-                    title: this.settings.title
-                }
+        let pages = {}
+
+        // Add the index page
+        pages[this.settings.path] = {
+            path: this.settings.path,
+            content: templateParser('kind_index', indexData),
+            frontmatter: {
+                title: this.settings.title
             }
-        ]
+        }
 
         for (const classData of classes) {
             let renderData = [classData]
@@ -94,13 +94,14 @@ class PageBuilder {
 
             const pageTemplate = `{{#class name="${classData.name}"}}{{>docs}}{{/class}}`
 
-            pages.push({
-                path: `${this.settings.path}class/${classData.name}.html`,
+            const classPagePath = `${this.settings.path}class/${classData.name}.html`
+            pages[classPagePath] = {
+                path: classPagePath,
                 content: dmd(renderData , pageTemplate),
                 frontmatter: {
                     prev: this.settings.path
                 }
-            })
+            }
         }
 
         for (const functionData of functions) {
@@ -108,16 +109,17 @@ class PageBuilder {
 
             const pageTemplate = `{{#function name="${functionData.name}"}}{{>docs}}{{/class}}`
 
-            pages.push({
-                path: `${this.settings.path}function/${functionData.name}.html`,
+            const functionPagePath = `${this.settings.path}function/${functionData.name}.html`
+            pages[functionPagePath] = {
+                path: functionPagePath,
                 content: dmd(renderData , pageTemplate),
                 frontmatter: {
                     prev: this.settings.path
                 }
-            })
+            }
         }
 
-        return pages
+        return Object.values(pages)
     }
 }
 
