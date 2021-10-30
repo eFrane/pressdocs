@@ -95,7 +95,7 @@ class PageBuilder {
             const pageTemplate = `{{#class name="${classData.name}"}}{{>docs}}{{/class}}`
 
             pages.push({
-                path: this.settings.path + 'class/' + classData.name,
+                path: `${this.settings.path}class/${classData.name}.html`,
                 content: dmd(renderData , pageTemplate),
                 frontmatter: {
                     prev: this.settings.path
@@ -109,7 +109,7 @@ class PageBuilder {
             const pageTemplate = `{{#function name="${functionData.name}"}}{{>docs}}{{/class}}`
 
             pages.push({
-                path: this.settings.path + 'function/' + functionData.name,
+                path: `${this.settings.path}function/${functionData.name}.html`,
                 content: dmd(renderData , pageTemplate),
                 frontmatter: {
                     prev: this.settings.path
